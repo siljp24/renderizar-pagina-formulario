@@ -1,0 +1,29 @@
+include includes/headers.pug
+
+<div class="container">
+    <div class="row mt-4">
+    </div>
+        <div class="row mt-4">
+            <div class="col-md-6 offset-md-3">
+                <div class="form">
+                <form action="/pages/login" method="post">
+                    <h3 class="text-center">Sign In</h3>
+                    p(style="color: red" class="text-center")= errorMessage1 
+                    p(style="color: red" class="text-center")= errorMessage2
+                    <div class="my-4">
+                        <input type="text" class="form-control" name="username" id="username" aria-describedby="emailHelp" placeholder="username">
+                    </div>  
+                    <div class="my-4">
+                        <input type="password" class="form-control" name="password" id="password" aria-describedby="emailHelp" placeholder="contraseña">
+                    </div>   
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-success" type="submit">Submit</button>
+                    </div>
+                    <div class="my-4 text-center">
+                        <a href="./sign-up">Sign Up</a>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
