@@ -1,7 +1,6 @@
 const { Router } = require("express");
 const { model } = require("mongoose");
 const models = require('../api/models')
-const middlewares = require('../middlewares')
 const router = Router();
 
 router.get("/sign-up", (req,res)=>{
@@ -43,7 +42,7 @@ router.get("/username", async (req,res)=>{
         nombre = req.session.user.username
         if(user.admin){
             userType = 2
-            const allUsers = await models.user.find({})
+            const allUsers = await models.user.find({admin: false})
             for(let i = 0; allUsers.length > i; i++){
                 let name = ''
                 name = allUsers[i]
@@ -62,9 +61,6 @@ router.get("/username", async (req,res)=>{
     res.render("user.pug", {title: "Username", userType, nombre, list, remove})
 })
 
-router.get("/admin", (req,res)=>{
-    res.render("admin.pug", {title: "Administrador"})
-})
 
 //MIDDLEWARES   
 
